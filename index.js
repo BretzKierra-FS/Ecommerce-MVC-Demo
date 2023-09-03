@@ -1,24 +1,16 @@
 const express = require('express');
-
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Page Loaded');
-});
+/* body parcer is no longer required for express in current verson*/
+// const bodyParser = bodyParser.urlencoded({ extended: false });
+// app.use(bodyParser);
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
-app.get('/products/all', (req, res, next) => {
-  const { page, sort, order } = req.headers;
-  res.send(`GET Products all: ${page}, ${sort}, ${order} `);
-});
+const routeHandler = require('./routes');
+app.use('/', routeHandler); //one handler for routes
 
-app.get('/products/:id-:size-:color', (req, res) => {
-  res.send(
-    `Get Products: ${req.params.id}, ${req.params.size}, ${req.params.color}`
-  );
-});
-
-app.get('/products/:id', (req, res) => {
-  res.send(`Get Products: ${req.params.id}`);
-});
-
-app.listen(3000);
+app.listen(3000, () => console.log(`Server is running`));
