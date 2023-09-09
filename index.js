@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 
-/* body parcer is no longer required for express in current verson*/
-// const bodyParser = bodyParser.urlencoded({ extended: false });
-// app.use(bodyParser);
+//views MVC
+app.set('views', __dirname + '/templates/views');
+app.set('view engine', 'twig');
+
 app.use(
   express.urlencoded({
     extended: true,

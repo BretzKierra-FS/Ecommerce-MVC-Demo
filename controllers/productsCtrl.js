@@ -1,8 +1,10 @@
 const Products = require('../models/products');
 
 const index = (req, res, next) => {
-  const products = Products.all();
-  res.send(products);
+  // const products = Products.all();
+  // res.send(products);
+  
+
 };
 
 const form = (req, res, next) => {
