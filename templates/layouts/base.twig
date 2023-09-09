@@ -6,7 +6,15 @@
     <title>ASL Project</title>
   </head>
   <body>
+
+    {% include '../partials/_header.twig' %}
     <h1>Hello World!</h1>
+    {% block main_content %}
     <p>This content is coming from templates/layouts/base.twig</p>
+    
+     {% endblock %}
+
+    {# {% block scripts %}{% endblock %} #}
+  {% include '../partials/_footer.twig' %}
   </body>
 </html>
