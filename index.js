@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
+
+app.use(methodOverride('_method'));
 
 //views MVC
-app.set('views', __dirname + '/templates/views');
+app.set('views', __dirname + '/templates');
 app.set('view engine', 'twig');
 
 app.use(
   express.urlencoded({
-    extended: true,
+    extended: false,
   })
 );
 

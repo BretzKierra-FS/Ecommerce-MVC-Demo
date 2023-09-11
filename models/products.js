@@ -1,4 +1,17 @@
-let products = [{ id: '1', slug: 'nike-shoe', name: 'Nike Shoe' }];
+let products = [
+  {
+    id: '1',
+    name: 'Nike Shoe',
+    price: 139.99,
+    description: 'General shoe description',
+  },
+  {
+    id: '2',
+    name: 'Skechers Slip-ins',
+    price: 90.0,
+    description: 'General shoe description',
+  },
+];
 
 const all = () => {
   return products;
@@ -9,8 +22,9 @@ const find = (id) => {
 };
 
 const create = (product) => {
-  products.push(product);
-  return products;
+  const id = Number(products[products.length - 1].id) + 1 + '';
+  products.push({ id, ...product });
+  return products[products.length - 1];
 };
 
 const update = (id, product) => {
@@ -23,6 +37,7 @@ const update = (id, product) => {
 const remove = (id) => {
   products = products.filter((p) => p.id !== id);
   return products;
+  
 };
 
 module.exports = { all, find, update, remove, create };
