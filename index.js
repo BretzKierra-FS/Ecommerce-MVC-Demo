@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 
-/* body parcer is no longer required for express in current verson*/
-// const bodyParser = bodyParser.urlencoded({ extended: false });
-// app.use(bodyParser);
+app.use(methodOverride('_method'));
+
+//views MVC
+app.set('views', __dirname + '/templates');
+app.set('view engine', 'twig');
+
 app.use(
   express.urlencoded({
-    extended: true,
+    extended: false,
   })
 );
 
