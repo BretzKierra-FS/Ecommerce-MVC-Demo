@@ -1,11 +1,18 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+// app.use(
+//   express.urlencoded({
+//     extended: true,
+//   })
+// );
 
 //views MVC
 app.set('views', __dirname + '/templates');

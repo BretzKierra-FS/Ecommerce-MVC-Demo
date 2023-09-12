@@ -20,20 +20,24 @@ const form = (req, res, next) => {
 };
 
 const create = (req, res, next) => {
-  
-  products.push()
-
-  // res.json(product);
+  const id = products.length + 1;
+  products.push({
+    id,
+    ...req.body,
+  });
+  res.redirect(`/products/${id}`);
 };
 
 const update = (req, res, next) => {
   console.log(req.body);
   const id = Number(req.params.id);
-  products.map((p) => {
+  products = products.map((p) => {
     if (p.id === id) {
       return req.body;
     }
   });
+  
+
   res.redirect(`/products/${id}`);
 };
 
