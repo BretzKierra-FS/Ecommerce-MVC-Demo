@@ -2,9 +2,9 @@ const express = require('express');
 let products = require('../models/products');
 
 const index = (req, res, next) => {
-  console.log('index view');
+  // console.log('index view');
   res.render('views/products/index.html.twig', { products });
-  console.log('index end');
+  // console.log('index end');
 };
 
 const show = (req, res, next) => {
@@ -34,11 +34,7 @@ const update = (req, res, next) => {
   products = products.map((p) =>
     Number(p.id) === id ? { id, ...p, ...req.body } : p
   );
-
-  // console.log('update Start');
   // console.log(products);
-  // console.log('update end');
-
   res.redirect(`/products/${id}`);
 };
 
