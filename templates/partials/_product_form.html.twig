@@ -1,0 +1,33 @@
+{% if id != false %}
+    <form method="POST" action="/products/{{product.id}}">
+    <input name="id" type="hidden" value="{{product.id}}">
+{% else %}
+    <form method="POST" action="/products">
+ {% endif %}
+    
+    <div>
+        <label for="name">
+            Name
+        </label>
+        <input name="name" type="text" id="name" value="{{product.name}}">
+    </div>
+     <div>
+        <label for="price">
+            Price
+        </label>
+        <input name="price" type="text" id="price" value="{{product.price}}">
+    </div>
+     <div>
+        <label for="description">
+            Description
+        </label>
+        <input name="description" type="text" id="description" value="{{product.description}}">
+    </div>
+
+    {% if id != false %}
+        <button type="submit" >Update Product</button>
+    {% else %}
+        <button type="submit" >Create New Product</button>
+    {% endif %}
+
+ </form>

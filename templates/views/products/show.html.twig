@@ -1,4 +1,4 @@
-{% extends "layouts/base.twig" %} 
+{% extends "layouts/base.html.twig" %} 
 
 {% block main_content %}
 
@@ -12,12 +12,7 @@
         </li>
     </ul>
     <p>
-    <a href="/products/{{product.id}}/edit">Edit</a> 
-    
-    <form action="/products/{{ product.id }}" method="POST">
-            <input type="hidden" name="_method" value="DELETE"> 
-                <button type="submit">Remove</button>
-        </form>
+    <a href="/products/{{product.id}}/edit">Edit</a> |  <a href="/products/{{product.id}}/delete">Remove</a>
 
     </p>
 

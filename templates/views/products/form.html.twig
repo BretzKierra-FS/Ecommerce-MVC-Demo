@@ -1,0 +1,15 @@
+{% extends "layouts/base.html.twig" %} 
+
+{% block main_content %}
+{% if id == false %}
+<h2>New Product:</h2>
+{% include 'partials/_product_form.html.twig' %}
+{% else %}
+<h2>Update {{product.name}}</h2>
+{% include 'partials/_product_form.html.twig' with {id: id, product: product} %}
+
+
+
+{% endif %}
+
+{% endblock %}
