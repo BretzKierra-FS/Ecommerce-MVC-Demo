@@ -1,46 +1,49 @@
 const express = require('express');
-let products = require('../models/products');
+const { Product } = require('../models'); //let might be an issue
 
-const index = (req, res, next) => {
+const index = async (req, res, next) => {
   // console.log('index view');
+  const products = await Product.findAll();
   res.render('views/products/index.html.twig', { products });
   // console.log('index end');
 };
 
-const show = (req, res, next) => {
-  const id = Number(req.params.id);
-  const product = products.find((p) => Number(p.id) === id);  //Id must consistently stay a number
-
+const show = async (req, res, next) => {
+  const product = await Product.findOne({ id: req.params.id });
   res.render('views/products/show.html.twig', { product });
 };
 
-const form = (req, res, next) => {
+const form = async (req, res, next) => {
   const id = Number(req.params.id || false);
-  const product = id ? products.find((p) => Number(p.id) === id) : {};  
+  const product = await Product.findOne({ id: req.params.id });
 
   res.render('views/products/form.html.twig', { product, id });
 };
 
-const create = (req, res, next) => {
-  const id = products.length + 1;
-  const newProduct = { id, ...req.body };
-  products.push(newProduct);
+const create = async (req, res, next) => {
+  const product = await Product.create(req.body);
 
-  res.redirect(`/products/${id}`);
+  res.redirect(`/products/${product.id}`);
 };
 
-const update = (req, res, next) => {
-  const id = Number(req.params.id);
-  products = products.map((p) =>
-    Number(p.id) === id ? { id, ...p, ...req.body } : p
-  );
+const update = async (req, res, next) => {
+  const product = await Product.findOne({ id: req.params.id });
+  await Product.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  });
   // console.log(products);
-  res.redirect(`/products/${id}`);
+  res.redirect(`/products/${product.id}`);
 };
 
-const remove = (req, res, next) => {
+const remove = async (req, res, next) => {
   const id = Number(req.params.id);
-  products = products.filter((p) => Number(p.id) !== id);
+  await Product.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
 
   res.redirect('/products');
 };

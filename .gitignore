@@ -1,3 +1,7 @@
+# Database
+data/*
+!data/.gitkeep
+
 # Logs
 logs
 *.log
