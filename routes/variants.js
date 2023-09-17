@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const variantCtrl = require('../controllers/variantsCtrl');
+const variantCtrl = require('../controllers/variantCtrl');
+
+
 
 // The order MATTERS!
 router.get('/', variantCtrl.index); //show all

@@ -1,0 +1,17 @@
+{% extends "layouts/base.html.twig" %} 
+
+
+{% block main_content %}
+    <h2>All Products</h2>
+    <ul>
+        {% for product in products %}
+            <li>
+                {{product.title}} - 
+                <a href="/products/{{ product.id }}"> Edit</a>
+              
+            </li>
+            
+        {% endfor %}
+    </ul>
+    <a href="/products/new">Create New Product</a>
+{% endblock %}

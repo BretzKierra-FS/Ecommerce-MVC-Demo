@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const imageCtrl = require('../controllers/variantsCtrl');
+const imageCtrl = require('../controllers/imageCtrl');
 
 // The order MATTERS!
 router.get('/', imageCtrl.index); //show all
