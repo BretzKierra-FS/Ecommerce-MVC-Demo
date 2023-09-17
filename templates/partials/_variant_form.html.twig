@@ -1,0 +1,57 @@
+{% if id != false %}
+    <form method="POST" action="/variants/{{variant.id}}">
+    <input name="id" type="hidden" value="{{variant.id}}">
+{% else %}
+    <form method="POST" action="/variants">
+ {% endif %}
+    
+    <div>
+        <label for="title">
+            Title
+        </label>
+        <input name="title" type="text" id="title" value="{{variant.title}}">
+    </div>
+     <div>
+        <label for="price">
+            Price
+        </label>
+        <input name="price" type="text" id="price" value="{{variant.price}}">
+    </div>
+     <div>
+        <label for="description">
+            Description
+        </label>
+        <input name="description" type="text" id="description" value="{{variant.description}}">
+    </div>
+        <div>
+        <label for="slug">
+            Slug
+        </label>
+        <input name="slug" type="text" id="slug" value="{{variant.slug}}">
+    </div>
+
+
+       <div>
+        <label for="inventory">
+            Inventory
+        </label>
+        <input name="inventory" type="text" id="inventory" value="{{variant.inventory}}">
+    </div>
+    <div>
+        <label for="">Product:</label>
+        <select name="productId" id="productId">
+            {% for product in products %}
+                <option value="{{product.id}}" > {{product.title}} </option>
+            {% endfor %}
+        
+        </select>
+    </div>
+   
+
+    {% if id != false %}
+        <button type="submit" >Update Variant</button>
+    {% else %}
+        <button type="submit" >Create New Variant test</button>
+    {% endif %}
+
+ </form>

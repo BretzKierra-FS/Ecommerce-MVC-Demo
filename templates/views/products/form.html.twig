@@ -5,10 +5,8 @@
 <h2>New Product:</h2>
 {% include 'partials/_product_form.html.twig' %}
 {% else %}
-<h2>Update {{product.name}}</h2>
+<h2>Update {{product.title}}</h2>
 {% include 'partials/_product_form.html.twig' with {id: id, product: product} %}
-
-
 
 {% endif %}
 

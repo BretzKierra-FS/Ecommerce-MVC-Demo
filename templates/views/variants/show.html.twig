@@ -1,0 +1,25 @@
+{% extends "layouts/base.html.twig" %} 
+
+{% block main_content %}
+
+<div class="product-details">
+    <h3>About {{ variant.title }}</h3>
+    <ul>
+        <li>
+            <label for="">Product ID:</label> {{ variant.productId }}
+            <label for="">Title:</label> {{ variant.title }}
+            <label for="">Price:</label> {{ variant.price }}
+            <label for="">Description:</label> {{ variant.description }}
+            <label for="">Slug:</label>{{variant.slug}}
+            <label for="">Product:</label>{{product.title}}
+
+        </li>
+    </ul>
+    <p>
+        <a href="/variants/{{variant.id}}/edit">Edit</a> |
+        <a href="/variants/{{variant.id}}/delete">Remove</a>
+    </p>
+</div>
+
+
+{% endblock %}

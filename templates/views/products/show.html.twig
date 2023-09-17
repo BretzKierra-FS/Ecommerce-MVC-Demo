@@ -2,18 +2,23 @@
 
 {% block main_content %}
 
-<h3>About {{ product.name }}</h3>
+<div class="product-details">
+    <h3>About {{ product.title }}</h3>
     <ul>
         <li>
             <label for="">Id:</label> {{ product.id }}
-            <label for="">Name:</label> {{ product.name }}
+            <label for="">Title:</label> {{ product.title }}
             <label for="">Price:</label> {{ product.price }}
             <label for="">Description:</label> {{ product.description }}
+            <label for="">slug:</label> {{ product.slug }}
+             <label for="">Published:</label> {{ product.is_published }}
         </li>
     </ul>
     <p>
-    <a href="/products/{{product.id}}/edit">Edit</a> |  <a href="/products/{{product.id}}/delete">Remove</a>
-
+        <a href="/products/{{product.id}}/edit">Edit</a> |
+        <a href="/products/{{product.id}}/delete">Remove</a>
     </p>
+</div>
+
 
 {% endblock %}

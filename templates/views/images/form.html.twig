@@ -1,0 +1,15 @@
+{% extends "layouts/base.html.twig" %} 
+
+{% block main_content %}
+{% if id == false %}
+<h2>New Image:</h2>
+{% include 'partials/_image_form.html.twig' %}
+{% else %}
+<h2>Update {{image.id}} Image</h2>
+{% include 'partials/_image_form.html.twig' with {id: id, image: image} %}
+
+
+
+{% endif %}
+
+{% endblock %}

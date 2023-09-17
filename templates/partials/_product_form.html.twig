@@ -6,10 +6,10 @@
  {% endif %}
     
     <div>
-        <label for="name">
-            Name
+        <label for="title">
+            Title:
         </label>
-        <input name="name" type="text" id="name" value="{{product.name}}">
+        <input name="title" type="text" id="title" value="{{product.title}}">
     </div>
      <div>
         <label for="price">
@@ -23,6 +23,21 @@
         </label>
         <input name="description" type="text" id="description" value="{{product.description}}">
     </div>
+    <div>
+        <label for="slug">
+            Slug
+        </label>
+        <input name="slug" type="text" id="slug" value="{{product.slug}}">
+    </div>
+   <div>
+    <label>
+        <input type="radio" name="is_published" value="true" {% if product.is_published == true %}checked{% endif %}> True
+    </label>
+    <label>
+        <input type="radio" name="is_published" value="false" {% if product.is_published == false %}checked{% endif %}> False
+    </label>
+</div>
+
 
     {% if id != false %}
         <button type="submit" >Update Product</button>

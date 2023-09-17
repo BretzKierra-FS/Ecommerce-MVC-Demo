@@ -1,0 +1,15 @@
+{% extends "layouts/base.html.twig" %} 
+
+{% block main_content %}
+{% if id == false %}
+<h2>New Variant:</h2>
+{% include 'partials/_variant_form.html.twig' %}
+{% else %}
+<h2>Update {{variant.title}}</h2>
+{% include 'partials/_variant_form.html.twig' with { id: id, variant: variant} %}
+
+
+
+{% endif %}
+
+{% endblock %}
