@@ -2,16 +2,17 @@
 
 
 {% block main_content %}
-    <h2>All Products</h2>
+    <h2>All Image</h2>
     <ul>
-        {% for product in products %}
+        {% for image in images %}
             <li>
                 {{product.title}} - 
-                <a href="/products/{{ product.id }}"> Edit</a>
+                <a href="/images/{{ product.id }}"> Edit</a>
               
             </li>
             
         {% endfor %}
     </ul>
-    <a href="/products/new">Create New Product</a>
+    <a href="/images/new">Create New Image</a>
 {% endblock %}
+image

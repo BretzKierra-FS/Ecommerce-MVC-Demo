@@ -1,5 +1,5 @@
 const express = require('express');
-const { Image } = require('../models'); //let might be an issue
+const { Image, Variant } = require('../models'); //let might be an issue
 
 const index = async (req, res, next) => {
   // console.log('index view');
@@ -10,14 +10,16 @@ const index = async (req, res, next) => {
 
 const show = async (req, res, next) => {
   const image = await Image.findOne({ id: req.params.id });
-  res.render('views/images/show.html.twig', { image });
+  const variant = await Variant.findByPk(image.variantId);
+  res.render('views/images/show.html.twig', { image, variant });
 };
 
 const form = async (req, res, next) => {
+  const variants = await Variant.findAll();
   const id = Number(req.params.id || false);
   const image = await Image.findOne({ id: req.params.id });
 
-  res.render('views/images/form.html.twig', { image, id });
+  res.render('views/images/form.html.twig', { image, id, variants });
 };
 
 const create = async (req, res, next) => {

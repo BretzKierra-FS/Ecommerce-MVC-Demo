@@ -6,15 +6,18 @@
     <h3>About {{ variant.title }}</h3>
     <ul>
         <li>
-            <label for="">Id:</label> {{ produvariantct.id }}
+            <label for="">Product ID:</label> {{ variant.productId }}
             <label for="">Title:</label> {{ variant.title }}
             <label for="">Price:</label> {{ variant.price }}
             <label for="">Description:</label> {{ variant.description }}
+            <label for="">Slug:</label>{{variant.slug}}
+            <label for="">Product:</label>{{product.title}}
+
         </li>
     </ul>
     <p>
-        <a href="/products/{{variant.id}}/edit">Edit</a> |
-        <a href="/products/{{variant.id}}/delete">Remove</a>
+        <a href="/variants/{{variant.id}}/edit">Edit</a> |
+        <a href="/variants/{{variant.id}}/delete">Remove</a>
     </p>
 </div>
 

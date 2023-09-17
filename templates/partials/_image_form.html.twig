@@ -1,0 +1,22 @@
+{% if id != false %}
+    <form method="POST" action="/images/{{image.id}}">
+    <input name="id" type="hidden" value="{{image.id}}">
+{% else %}
+    <form method="POST" action="/images">
+ {% endif %}
+    <div>
+          <label for="">Variant:</label>
+        <select name="variantId" id="variantId">
+            {% for variant in variants %}
+                <option value="{{variant.id}}" > {{variant.title}} </option>
+            {% endfor %}
+        
+        </select>
+    </div>
+    {% if id != false %}
+        <button type="submit" >Update Image</button>
+    {% else %}
+        <button type="submit" >Create New Image</button>
+    {% endif %}
+
+ </form>
