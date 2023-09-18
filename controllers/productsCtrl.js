@@ -1,42 +1,51 @@
-const { response } = require('express');
-let Products = require('../models/products');
+const express = require('express');
+let products = require('../models/products');
 
 const index = (req, res, next) => {
-  const products = Products.all();
+  console.log('index view');
   res.render('views/products/index.html.twig', { products });
-  // res.send(products);
-};
-
-const form = (req, res, next) => {
-  // res.send(`Product.form`);
-  const product = Products.find(req.params.id);
-  if (req.params.id) {
-    res.render('views/products/edit.html.twig', { product });
-  } else {
-    res.render('views/products/create.html.twig');
-  }
+  console.log('index end');
 };
 
 const show = (req, res, next) => {
-  const product = Products.find(req.params.id);
-  res.render('views/products/show.html.twig', { product });
+  const id = Number(req.params.id);
+  const product = products.find((p) => Number(p.id) === id);
 
-  // res.json(product);
+  res.render('views/products/show.html.twig', { product });
+};
+
+const form = (req, res, next) => {
+  const id = Number(req.params.id || false);
+  const product = id ? products.find((p) => Number(p.id) === id) : {};
+
+  res.render('views/products/_form.html.twig', { product, id });
 };
 
 const create = (req, res, next) => {
-  const product = Products.create(req.body);
-  res.redirect(`/products/${product.id}`);
+  const id = products.length + 1;
+  const newProduct = { id, ...req.body };
+  products.push(newProduct);
 
-  // res.json(product);
+  res.redirect(`/products/${id}`);
 };
 
 const update = (req, res, next) => {
-  const product = Products.update(req.params.id, req.body);
-  res.redirect(`/products/${req.params.id}`);
+  const id = Number(req.params.id);
+  products = products.map((p) =>
+    Number(p.id) === id ? { id, ...p, ...req.body } : p
+  );
+
+  console.log('update Start');
+  console.log(products);
+  console.log('update end');
+
+  res.redirect(`/products/${id}`);
 };
 
 const remove = (req, res, next) => {
+  const id = Number(req.params.id);
+  products = products.filter((p) => Number(p.id) !== id);
+
   res.redirect('/products');
 };
 
