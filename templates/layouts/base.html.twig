@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ASL Project</title>
 
-    {% include 'styles.html.twig' %}
+  {% block stylesheets %}
+    <link rel="stylesheet"  type="text/css" href="app.css">
+  {% endblock %}
 
   </head>
   <body>
@@ -17,6 +19,13 @@
 
     {# {% block scripts %}{% endblock %} #}
   {% include '../partials/_footer.twig' %}
- 
+  
+  	{% block scripts %}
+
+		<script type="text/javascript" src="app.js"></script>
+
+	{% endblock %}
+
+
   </body>
 </html>
