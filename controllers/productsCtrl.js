@@ -21,13 +21,26 @@ const form = async (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
+  console.log(res.locals.errors);
+  res.send('error check console');
+  return true;
+
   const product = await Product.create(req.body);
 
   res.redirect(`/products/${product.id}`);
 };
 
 const update = async (req, res, next) => {
+  const id = typeof req.params === 'undefined' ? false : Number(req.params.id);
   const product = await Product.findOne({ id: req.params.id });
+//If errors dont run update logic
+  if (res.locals.errors.length) {
+    res.render('views/products/form.html.twig', {
+      product, id, errors: res.locals.errors
+    })
+    return true
+  }
+
   await Product.update(req.body, {
     where: {
       id: req.params.id,
