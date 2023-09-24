@@ -1,0 +1,36 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block main_content %}
+  <div class="product-wrapper">
+    <div class="product-images">
+      <img class="main-image" src="/public/images/{{ variant.Images[0].id }}{{ variant.Images[0].extension }}" alt="{{ product.title }}" />
+
+      <div class="variant-images">
+        {% for v in product.Variants %}
+          <a href="/store/products/{{ product.slug }}?v={{ v.slug }}">
+            <img class="variant-image" src="/public/images/{{ v.Images[0].id }}{{ v.Images[0].extension }}" alt="{{ v.title }}" />
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="product-details">
+      <h1>{{ product.title }} {{ variant.title }}</h1>
+      <p class="description">{{ product.description }}</p>
+      <div class="price-stock">
+        <strong>Price: ${{ variant.price }}</strong>
+        <strong>Stock:</strong>
+        <span>
+          {% if variant.inventory == 0 %}
+            Out of Stock
+          {% elseif variant.inventory < 10 %}
+            Only {{ variant.inventory }} left!
+          {% else %}
+            In Stock
+          {% endif %}
+        </span>
+      </div>
+      <h4 class="add-to-cart">Add to cart</h4>
+    </div>
+  </div>
+{% endblock %}

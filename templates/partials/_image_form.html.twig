@@ -1,9 +1,19 @@
 {% if id != false %}
-    <form method="POST" action="/images/{{image.id}}">
+    <form method="POST" action="/images/{{image.id}}  enctype="multipart/form-data"">
     <input name="id" type="hidden" value="{{image.id}}">
 {% else %}
-    <form method="POST" action="/images">
+    <form method="POST" action="/images" enctype="multipart/form-data" >
  {% endif %}
+
+    <div>
+        {% if image is defined and image.id %}
+            <img src="../../public/images/{{image.id}}.{{image.extension}}" alt="">
+        {% endif %}
+    </div>
+    <div>
+        <label for="image">Image</label>
+        <input name="image" id="image"  type="file">
+    </div>
     <div>
           <label for="">Variant:</label>
         <select name="variantId" id="variantId">

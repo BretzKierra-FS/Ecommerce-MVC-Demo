@@ -1,0 +1,277 @@
+.add-to-cart {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for the button */
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px auto;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  text-align: center;
+}
+
+.product-images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.variant-images {
+  display: flex;
+  justify-content: center;
+}
+
+.variant-image {
+  max-width: 50px;
+  height: auto;
+  margin: 4px;
+}
+
+.product-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.product-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.variant-images {
+  display: flex;
+  justify-content: center;
+}
+
+.variant-image {
+  max-width: 50px;
+  height: auto;
+  margin: 4px;
+}
+
+.product-details {
+  flex: 1;
+  text-align: center;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.description {
+  text-align: left;
+  margin-top: 16px;
+}
+
+.price-stock {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+h4 {
+  margin-top: 16px;
+  font-weight: bold;
+}
+/* header */
+header {
+  background: linear-gradient(
+    45deg,
+    #ff9a8b,
+    #ff5a5a
+  ); /* Gradient from pink to red */
+  padding: 10px 0;
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  background: linear-gradient(
+    45deg,
+    #ffc53d,
+    #ffaa00
+  ); /* Gradient from yellow to orange */
+  transition: background-color 0.2s ease-in-out;
+}
+
+nav a:hover {
+  background: linear-gradient(
+    45deg,
+    #ffaa00,
+    #ff8000
+  ); /* Brighter gradient on hover */
+  color: #fff;
+}
+/* body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0%;
+}
+/* store */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.store-logo-header-container {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(45deg, #ff9a8b, #ff5a5a);
+}
+.store-header {
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 32px;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 0;
+  width: calc(33.33% - 10px);
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+  padding: 10px;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  padding: 10px;
+}
+
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.product-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(
+    45deg,
+    #ffc53d,
+    #ffaa00
+  ); /* Gradient from yellow to orange */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.product-link:hover {
+  background: linear-gradient(
+    45deg,
+    #ffaa00,
+    #ff8000
+  ); /* Brighter gradient on hover */
+  color: #fff;
+}
+
+/* footer */
+footer {
+  background: linear-gradient(45deg, #ff9a8b, #ff5a5a);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+footer p::before {
+  content: '\00a9';
+  margin-right: 5px;
+}
+/* logo */
+.store-logo {
+  display: inline-block; /* Display the logo as an inline element */
+  width: 120px; /* Adjust the width of the logo as needed */
+  height: auto; /* Maintain the aspect ratio of the logo */
+  margin-right: 10px; /* Add some space to the right of the logo */
+  vertical-align: middle; /* Align the logo vertically with text */
+}

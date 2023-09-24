@@ -9,9 +9,18 @@ const index = async (req, res, next) => {
 };
 
 const show = async (req, res, next) => {
-  const variant = await Variant.findOne({ id: req.params.id });
-  const product = await Product.findByPk(variant.productId);
-  res.render('views/variants/show.html.twig', { variant, product });
+  try {
+    const variant = await Variant.findOne({ where: { id: req.params.id } });
+
+    if (!variant) return res.status(404).send('Variant not found');
+
+    const product = await Product.findByPk(variant.productId);
+
+    res.render('views/variants/show.html.twig', { variant, product });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
 };
 
 const form = async (req, res, next) => {
