@@ -19,13 +19,20 @@ const show = async (req, res) => {
       include: [{ model: Variant, include: [Image] }],
     });
 
-    let variant = product.Variants[0];
+    if (!product) {
+      // handle the case where the product is not found.
+      return res.status(404).send('Product not found');
+    }
 
-    if (req.query.v) {
+    let variant = product.Variants[0];
+    let variants = product.Variants;
+    console.log(variants);
+
+    if (req.query.v && product.Variants) {
       variant = product.Variants.find((v) => v.slug === req.query.v);
     }
 
-    res.render('views/store/show.html.twig', { product, variant });
+    res.render('views/store/show.html.twig', { product, variant, variants });
   } catch (error) {
     console.error(error);
     res.status(500).send('Server Error');
