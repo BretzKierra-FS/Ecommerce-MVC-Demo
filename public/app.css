@@ -1,93 +1,167 @@
-  h2 {
-     margin: 0 auto;
-  }
-  
+/* header */
+header {
+  background: linear-gradient(
+    45deg,
+    #ff9a8b,
+    #ff5a5a
+  ); /* Gradient from pink to red */
+  padding: 10px 0;
+}
 
-  form {
-    max-width: 400px;
-    padding: 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
+nav {
+  text-align: center;
+}
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-
-  input[type='text'] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-  }
- 
-  button[type='submit'] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
- 
-  button[type='submit']:hover {
-    background-color: #0056b3;
-  }
-
-  /* Style the product details container */
-.product-details {
-  margin-top: 5ch;
-  max-width: 400px;
-  padding: 20px;
-  border: 1px solid #ccc;
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0 10px;
   border-radius: 5px;
-  background-color: #f9f9f9;
- 
+  background: linear-gradient(
+    45deg,
+    #ffc53d,
+    #ffaa00
+  ); /* Gradient from yellow to orange */
+  transition: background-color 0.2s ease-in-out;
 }
 
-
-.product-details h3 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 10px;
+nav a:hover {
+  background: linear-gradient(
+    45deg,
+    #ffaa00,
+    #ff8000
+  ); /* Brighter gradient on hover */
+  color: #fff;
 }
-
-
-.product-details ul {
-
-  list-style-type: none;
+/* body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
   padding: 0;
 }
+/* store */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+.store-logo-header-container {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(45deg, #ff9a8b, #ff5a5a);
+}
+.store-header {
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 32px;
+}
 
-.product-details li {
+.product-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 0;
+  width: calc(33.33% - 10px);
+  box-sizing: border-box;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-title {
+  font-size: 20px;
   margin-bottom: 10px;
+  color: #333;
+  padding: 10px;
 }
 
-
-.product-details label {
-  display: inline-block;
+.product-price {
+  font-size: 18px;
   font-weight: bold;
+  color: #333;
+  padding: 10px;
 }
 
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
 
-.product-details a {
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.product-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
   text-decoration: none;
-  color: #007bff;
-  margin-right: 10px;
+  color: #fff;
+  background: linear-gradient(
+    45deg,
+    #ffc53d,
+    #ffaa00
+  ); /* Gradient from yellow to orange */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
 }
 
-
-.product-details a:hover {
-  text-decoration: underline;
+.product-link:hover {
+  background: linear-gradient(
+    45deg,
+    #ffaa00,
+    #ff8000
+  ); /* Brighter gradient on hover */
+  color: #fff;
 }
 
+/* footer */
+footer {
+  background: linear-gradient(45deg, #ff9a8b, #ff5a5a);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+footer p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+footer p::before {
+  content: '\00a9';
+  margin-right: 5px;
+}
+/* logo */
+.store-logo {
+  display: inline-block; /* Display the logo as an inline element */
+  width: 120px; /* Adjust the width of the logo as needed */
+  height: auto; /* Maintain the aspect ratio of the logo */
+  margin-right: 10px; /* Add some space to the right of the logo */
+  vertical-align: middle; /* Align the logo vertically with text */
+}

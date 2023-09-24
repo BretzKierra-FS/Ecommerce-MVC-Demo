@@ -1,0 +1,25 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block main_content %}
+  <div class="container">
+    <div class="store-logo-header-container">
+        <img class="store-logo" src="../../public/images/great.png" alt="Great Logo">
+        <h2 class="store-header"> Great Deals Store</h2>
+    </div>
+    <ul class="product-list">
+      {% for product in products %}
+      <li class="product">
+        <h3 class="product-title">{{ product.title }}</h3>
+        <p class="product-price">${{ product.price }}</p>
+        <div class="product-image">
+          {% if product.Variants|length > 0 %}
+            {% set variantImage = product.Variants[0].Images[0] %}
+            <img src="/public/images/{{ variantImage.id }}{{ variantImage.extension }}" alt="{{ product.title }}">
+          {% endif %}
+        </div>
+        <a href="/store/products/{{ product.slug }}" class="product-link">View Details</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

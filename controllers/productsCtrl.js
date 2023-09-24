@@ -9,8 +9,16 @@ const index = async (req, res, next) => {
 };
 
 const show = async (req, res, next) => {
-  const product = await Product.findOne({ id: req.params.id });
-  res.render('views/products/show.html.twig', { product });
+  try {
+    const product = await Product.findOne({ where: { id: req.params.id } });
+
+    if (!product) return res.status(404).send('Product not found');
+
+    res.render('views/products/show.html.twig', { product });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
 };
 
 const form = async (req, res, next) => {
