@@ -1,4 +1,4 @@
-{% if id != false %}
+{% if id != false and id %}
     <form method="POST" action="/products/{{product.id}}">
     <input name="id" type="hidden" value="{{product.id}}">
 {% else %}
@@ -30,6 +30,7 @@
         <input name="slug" type="text" id="slug" value="{{product.slug}}">
     </div>
    <div>
+    <h6>Published:</h6>
     <label>
         <input type="radio" name="is_published" value="true" {% if product.is_published == true %}checked{% endif %}> True
     </label>

@@ -15,9 +15,12 @@ const show = async (req, res, next) => {
 
 const form = async (req, res, next) => {
   const id = Number(req.params.id || false);
-  const product = await Product.findOne({ id: req.params.id });
-
-  res.render('views/products/form.html.twig', { product, id });
+  if (id) {
+    const product = await Product.findOne({ id: req.params.id });
+    res.render('views/products/form.html.twig', { product, id });
+  } else {
+    res.render('views/products/form.html.twig');
+  }
 };
 
 const create = async (req, res, next) => {

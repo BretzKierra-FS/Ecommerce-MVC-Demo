@@ -9,9 +9,20 @@ const index = async (req, res, next) => {
 };
 
 const show = async (req, res, next) => {
-  const image = await Image.findOne({ id: req.params.id });
-  const variant = await Variant.findByPk(image.variantId);
-  res.render('views/images/show.html.twig', { image, variant });
+  try {
+    const image = await Image.findOne({ where: { id: req.params.id } });
+
+    if (!image) return res.status(404).send('Image not found');
+
+    const variant = image.variantId
+      ? await Variant.findByPk(image.variantId)
+      : null;
+
+    res.render('views/images/show.html.twig', { image, variant });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
 };
 
 const form = async (req, res, next) => {
@@ -24,6 +35,8 @@ const form = async (req, res, next) => {
 
 const create = async (req, res, next) => {
   const image = await Image.create(req.body);
+  req.imageId = image.id;
+  next();
 
   res.redirect(`/images/${image.id}`);
 };
@@ -35,7 +48,8 @@ const update = async (req, res, next) => {
       id: req.params.id,
     },
   });
-  // console.log(images);
+  req.imageId = id;
+  next();
   res.redirect(`/images/${image.id}`);
 };
 
