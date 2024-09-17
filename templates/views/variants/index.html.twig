@@ -1,17 +1,16 @@
-{% extends "layouts/base.html.twig" %} 
-
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
-    <h2>All Variants</h2>
-    <ul>
-        {% for variant in variants %}
-            <li>
-                {{variant.title}} - 
-                <a href="/variants/{{ variant.id }}"> Edit</a>
-              
-            </li>
-            
-        {% endfor %}
-    </ul>
-    <a href="/variants/new">Create New Variant</a>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh;">
+        <h2 style="font-size: 24px; color: #333; margin-bottom: 20px;">All Variants</h2>
+        <ul style="list-style: none; padding: 0; width: 100%; max-width: 600px;">
+            {% for variant in variants %}
+                <li style="background-color: #ffffff; margin: 10px 0; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <strong style="font-size: 18px;">{{ variant.title }}</strong> - 
+                    <a href="/variants/{{ variant.id }}" style="text-decoration: none; color: #007BFF; font-weight: bold;">Edit</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/variants/new" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; margin-bottom: 10px;">Create New Variant</a>
+    </div>
 {% endblock %}

@@ -1,26 +1,30 @@
-{% extends "layouts/base.html.twig" %} 
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh;">
 
-            {# errors list #}
-    {% if errors is defined and errors|length > 0 %}
-        <ul>
-            {% for error in errors %}
-            <li>
-                {{error}}
-            </li>
-             {% endfor %}
-        </ul>
-    {% endif %}
+        {# errors list #}
+        {% if errors is defined and errors|length > 0 %}
+            <ul style="background-color: #f8d7da; color: #721c24; padding: 15px; border: 1px solid #f5c6cb; border-radius: 8px; width: 100%; max-width: 600px; margin-bottom: 20px;">
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
+        {# Product form title and inclusion #}
+        {% if id == false %}
+            <h2 style="font-size: 24px; color: #333; margin-bottom: 20px;">New Product:</h2>
+        {% else %}
+            <h2 style="font-size: 24px; color: #333; margin-bottom: 20px;">Update {{ product.title }}</h2>
+        {% endif %}
 
-{% if id == false %}
-<h2>New Product:</h2>
-{% include 'partials/_product_form.html.twig' %}
-{% else %}
-<h2>Update {{product.title}}</h2>
-{% include 'partials/_product_form.html.twig' with {id: id, product: product} %}
-
-{% endif %}
-
+        <div style="width: 100%; max-width: 600px;">
+            {% if id == false %}
+                {% include 'partials/_product_form.html.twig' %}
+            {% else %}
+                {% include 'partials/_product_form.html.twig' with {id: id, product: product} %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

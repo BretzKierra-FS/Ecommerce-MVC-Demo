@@ -1,24 +1,31 @@
-{% extends "layouts/base.html.twig" %} 
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
-
-<div class="product-details">
-    <h3>About {{ product.title }}</h3>
-    <ul>
-        <li>
-            <label for="">Id:</label> {{ product.id }}
-            <label for="">Title:</label> {{ product.title }}
-            <label for="">Price:</label> {{ product.price }}
-            <label for="">Description:</label> {{ product.description }}
-            <label for="">slug:</label> {{ product.slug }}
-             <label for="">Published:</label> {{ product.is_published }}
-        </li>
-    </ul>
-    <p>
-        <a href="/products/{{product.id}}/edit">Edit</a> |
-        <a href="/products/{{product.id}}/delete">Remove</a>
-    </p>
-</div>
-
-
+    <div class="product-details" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 24px; color: #333; margin-bottom: 20px;">About {{ product.title }}</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;">
+                <strong>Id:</strong> {{ product.id }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Title:</strong> {{ product.title }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Price:</strong> {{ product.price }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Description:</strong> {{ product.description }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Slug:</strong> {{ product.slug }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Published:</strong> {{ product.is_published ? 'Yes' : 'No' }}
+            </li>
+        </ul>
+        <p style="margin-top: 20px;">
+            <a href="/products/{{ product.id }}/edit" style="padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">Edit</a>
+            <a href="/products/{{ product.id }}/delete" style="padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;">Remove</a>
+        </p>
+    </div>
 {% endblock %}
