@@ -1,57 +1,52 @@
 {% if id != false %}
-    <form method="POST" action="/variants/{{variant.id}}">
-    <input name="id" type="hidden" value="{{variant.id}}">
+    <form method="POST" action="/variants/{{ variant.id }}" style="width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <input name="id" type="hidden" value="{{ variant.id }}">
 {% else %}
-    <form method="POST" action="/variants">
- {% endif %}
-    
-    <div>
-        <label for="title">
-            Title
+    <form method="POST" action="/variants" style="width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+{% endif %}
+
+    <div style="margin-bottom: 15px;">
+        <label for="title" style="font-weight: bold; display: block; margin-bottom: 5px;">
+            Title:
         </label>
-        <input name="title" type="text" id="title" value="{{variant.title}}">
-    </div>
-     <div>
-        <label for="price">
-            Price
-        </label>
-        <input name="price" type="text" id="price" value="{{variant.price}}">
-    </div>
-     <div>
-        <label for="description">
-            Description
-        </label>
-        <input name="description" type="text" id="description" value="{{variant.description}}">
-    </div>
-        <div>
-        <label for="slug">
-            Slug
-        </label>
-        <input name="slug" type="text" id="slug" value="{{variant.slug}}">
+        <input name="title" type="text" id="title" value="{{ variant.title }}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
     </div>
 
-
-       <div>
-        <label for="inventory">
-            Inventory
+    <div style="margin-bottom: 15px;">
+        <label for="price" style="font-weight: bold; display: block; margin-bottom: 5px;">
+            Price:
         </label>
-        <input name="inventory" type="text" id="inventory" value="{{variant.inventory}}">
+        <input name="price" type="text" id="price" value="{{ variant.price }}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
     </div>
-    <div>
-        <label for="">Product:</label>
-        <select name="productId" id="productId">
-            {% for product in products %}
-                <option value="{{product.id}}" > {{product.title}} </option>
-            {% endfor %}
-        
-        </select>
+
+    <div style="margin-bottom: 15px;">
+        <label for="description" style="font-weight: bold; display: block; margin-bottom: 5px;">
+            Description:
+        </label>
+        <input name="description" type="text" id="description" value="{{ variant.description }}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
     </div>
-   
+
+    <div style="margin-bottom: 15px;">
+        <label for="slug" style="font-weight: bold; display: block; margin-bottom: 5px;">
+            Slug:
+        </label>
+        <input name="slug" type="text" id="slug" value="{{ variant.slug }}" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="is_published" style="font-weight: bold; display: block; margin-bottom: 5px;">Published:</label>
+        <label style="margin-right: 10px;">
+            <input type="radio" name="is_published" value="true" {% if variant.is_published == true %}checked{% endif %}> True
+        </label>
+        <label>
+            <input type="radio" name="is_published" value="false" {% if variant.is_published == false %}checked{% endif %}> False
+        </label>
+    </div>
 
     {% if id != false %}
-        <button type="submit" >Update Variant</button>
+        <button type="submit" style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Update Variant</button>
     {% else %}
-        <button type="submit" >Create New Variant test</button>
+        <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Create New Variant</button>
     {% endif %}
 
- </form>
+</form>

@@ -1,15 +1,13 @@
-{% extends "layouts/base.html.twig" %} 
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
-{% if id == false %}
-<h2>New Image:</h2>
-{% include 'partials/_image_form.html.twig' %}
-{% else %}
-<h2>Update {{image.id}} Image</h2>
-{% include 'partials/_image_form.html.twig' with {id: id, image: image} %}
-
-
-
-{% endif %}
-
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh;">
+        {% if id == false %}
+            <h2 style="font-size: 24px; color: #333; margin-bottom: 20px;">New Image</h2>
+            {% include 'partials/_image_form.html.twig' %}
+        {% else %}
+            <h2 style="font-size: 24px; color: #333; margin-bottom: 20px;">Update Image {{ image.id }}</h2>
+            {% include 'partials/_image_form.html.twig' with { id: id, image: image } %}
+        {% endif %}
+    </div>
 {% endblock %}

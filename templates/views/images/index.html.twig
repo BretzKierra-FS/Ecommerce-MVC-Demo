@@ -1,18 +1,17 @@
-{% extends "layouts/base.html.twig" %} 
-
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
-    <h2>All Image</h2>
-    <ul>
-        {% for image in images %}
-            <li>
-                {{image.id}} - 
-                <a href="/images/{{ image.id }}"> Edit</a>
-              
-            </li>
-            
-        {% endfor %}
-    </ul>
-    <a href="/images/new">Create New Image</a>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 100vh;">
+        <h2 style="font-size: 24px; color: #333; margin-bottom: 20px;">All Images</h2>
+        <ul style="list-style: none; padding: 0; width: 100%; max-width: 600px;">
+            {% for image in images %}
+                <li style="background-color: #ffffff; margin: 10px 0; padding: 15px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <strong style="font-size: 18px;">Image ID: {{ image.id }}</strong> - 
+                    <a href="/images/{{ image.id }}" style="text-decoration: none; color: #007BFF; font-weight: bold;">Edit</a>
+                    <img src="../../public/images/{{ image.id }}{{ image.extension }}" alt="Image {{ image.id }}" style="height: 20px; padding-left:10px;">
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/images/new" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px;">Create New Image</a>
+    </div>
 {% endblock %}
-image

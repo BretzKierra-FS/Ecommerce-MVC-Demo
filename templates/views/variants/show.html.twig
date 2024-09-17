@@ -1,25 +1,31 @@
-{% extends "layouts/base.html.twig" %} 
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
-
-<div class="product-details">
-    <h3>About {{ variant.title }}</h3>
-    <ul>
-        <li>
-            <label for="">Product ID:</label> {{ variant.productId }}
-            <label for="">Title:</label> {{ variant.title }}
-            <label for="">Price:</label> {{ variant.price }}
-            <label for="">Description:</label> {{ variant.description }}
-            <label for="">Slug:</label>{{variant.slug}}
-            <label for="">Product:</label>{{product.title}}
-
-        </li>
-    </ul>
-    <p>
-        <a href="/variants/{{variant.id}}/edit">Edit</a> |
-        <a href="/variants/{{variant.id}}/delete">Remove</a>
-    </p>
-</div>
-
-
+    <div class="product-details" style="margin-bottom: 20px; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 24px; color: #333; margin-bottom: 20px;">About {{ variant.title }}</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;">
+                <strong>Product ID:</strong> {{ variant.productId }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Title:</strong> {{ variant.title }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Price:</strong> {{ variant.price }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Description:</strong> {{ variant.description }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Slug:</strong> {{ variant.slug }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Product:</strong> {{ product.title }}
+            </li>
+        </ul>
+        <p style="margin-top: 20px;">
+            <a href="/variants/{{ variant.id }}/edit" style="padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">Edit</a>
+            <a href="/variants/{{ variant.id }}/delete" style="padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;">Remove</a>
+        </p>
+    </div>
 {% endblock %}

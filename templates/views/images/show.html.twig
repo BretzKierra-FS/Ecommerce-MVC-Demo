@@ -1,23 +1,22 @@
-{% extends "layouts/base.html.twig" %} 
+{% extends "layouts/base.html.twig" %}
 
 {% block main_content %}
-
-<div class="image-details">
-    <h3>About Image {{ image.id }}</h3>
-    <ul>
-    <img src="../../public/images/{{image.id}}{{image.extension}}" alt="">
-        <li>
-            <label for="">Variant Id:</label> {{ image.variantId }}
-        </li>
-        <li>
-            <label for="">Variant Title:</label> {{ variant.title }}
-        </li>
-    </ul>
-    <p>
-        <a href="/images/{{image.id}}/edit">Edit</a> |
-        <a href="/images/{{image.id}}/delete">Remove</a>
-    </p>
-</div>
-
-
+    <div class="image-details" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 24px; color: #333; margin-bottom: 20px;">About Image {{ image.id }}</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px; text-align: center;">
+                <img src="../../public/images/{{ image.id }}{{ image.extension }}" alt="Image {{ image.id }}" style="max-width: 100%; border-radius: 8px;">
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Variant Id:</strong> {{ image.variantId }}
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Variant Title:</strong> {{ variant.title }}
+            </li>
+        </ul>
+        <p style="margin-top: 20px;">
+            <a href="/images/{{ image.id }}/edit" style="padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">Edit</a>
+            <a href="/images/{{ image.id }}/delete" style="padding: 10px 20px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;">Remove</a>
+        </p>
+    </div>
 {% endblock %}
