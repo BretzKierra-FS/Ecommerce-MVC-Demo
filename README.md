@@ -43,8 +43,8 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/asl_kierra_bretz.git
-   cd asl_kierra_bretz
+   git [clone https://github.com/your-repo/asl_kierra_bretz.git](https://github.com/BretzKierra-FS/Ecommerce-MVC-Demo.git
+   cd Ecommerce-MVC-Demo
    ```
 
 2. Start the Docker containers:
